@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  webapp:
+    build: 
+      context: .docker/config/
+      dockerfile: Dockerfile
+    image: dwirifki10/diskusiku-config:v1.0
+    container_name: webapp-container
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    command: "nodemon --legacy-watch src/app.js"
+    restart: always
